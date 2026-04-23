@@ -1,0 +1,53 @@
+# Le nom qui apparaîtra dans l'onglet "Actions" de GitHub
+
+name: Guard-Pipeline-CI-Docker
+
+ 
+
+# Quand le robot doit-il se réveiller ?
+
+on:
+
+  pull_request:
+
+    branches: [ "main" ] # Quand on veut fusionner vers la production
+
+ 
+
+# La liste des tâches (jobs) à accomplir
+
+jobs:
+
+  container-test:
+
+    runs-on: ubuntu-latest # Le robot loue un serveur Linux (Ubuntu) chez GitHub
+
+   
+
+    steps:
+
+      # Étape 1 : Le robot télécharge votre code depuis le dépôt
+
+      - name: Checkout code
+
+        uses: actions/checkout@v3
+
+ 
+
+      # Étape 2 : Le robot construit votre image Docker
+
+      # Il lit votre Dockerfile et installe tout dedans
+
+      - name: Build Docker Image
+
+        run: docker compose build
+
+ 
+
+      # Étape 3 : LE MOMENT DE VÉRITÉ
+
+      # Le robot lance le conteneur et exécute votre test de sécurité
+
+      - name: Run Kill-Switch Test in Docker
+
+        run: docker compose run web python manage.py test

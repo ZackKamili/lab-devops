@@ -1,0 +1,27 @@
+# Ne pas copier l'environnement virtuel local
+
+venv/
+
+.venv/
+
+ 
+
+# Ne pas copier les fichiers Git
+
+.git
+
+.gitignore
+
+ 
+
+# Ne pas copier les fichiers de cache Python
+
+**/__pycache__
+
+*.pyc
+
+ 
+
+# Ne pas copier la base de données locale
+
+db.sqlite3

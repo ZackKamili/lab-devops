@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_@pq*88)!)-22)9@6p+@pd%727nrdaf^#1@$xb0tpae7%#@ge!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',"lab-devops-mocha.vercel.app"]
+ALLOWED_HOSTS = ["lab-devops-mocha.vercel.app"]
 
 
 # Application definition

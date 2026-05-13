@@ -21,5 +21,6 @@ class KillSwitchTest(TestCase):
         # Vérifie que la page est accessible
         self.assertEqual(response.status_code, 200)
 
-        # Vérifie que le mot interdit n’est PAS présent
-        self.assertNotContains(response, "Attention")
+        # Vérifie que le mot interdit n’est PAS présent dans le contenu brut
+        # On utilise response.content.decode() pour éviter le bug de copie de contexte sur Python 3.14
+        self.assertNotIn("Attention", response.content.decode())

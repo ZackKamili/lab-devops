@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
     <meta charset="UTF-8">
-
     <title>Console de Surveillance</title>
-
     <style>body { font-family: sans-serif; padding: 50px; text-align: center; }</style>
-
 </head>
-
 <body>
+    <h1>Console de Surveillance DevOps</h1>
 
-    <h1>Système de Monitoring</h1>
-
-    <div style="border: 2px solid rgb(43, 0, 255); padding: 20px;">
-
-        <p>STATUT : maintenance en cours <strong>Salut … </strong>, le pipeline de déploiement est activé.</p>
-
+    <div style="border: 2px solid #28a745; padding: 20px; margin-bottom: 20px;">
+        <p>STATUT SYSTÈME : <strong>Opérationnel</strong></p>
     </div>
 
-</body>
+    <div style="border: 2px solid #555; padding: 20px; background-color: #f8f9fa;">
+        <h3>Zone de Test - Sprint Monitoring</h3>
+        <p>Action utilisateur : <em>Mettre à jour les statistiques (Bêta)</em></p>
 
+        <a href="{% url 'sentry_debug' %}">
+            <button style="padding: 10px 20px; cursor: pointer; font-weight: bold;">
+                🔄 Actualiser les données
+            </button>
+        </a>
+
+        {% if error %}
+        <p style="color: orange; font-size: 0.9em;">
+            ⚠ Erreur de connexion au serveur de données. Veuillez réessayer.
+        </p>
+        {% endif %}
+    </div>
+</body>
 </html>

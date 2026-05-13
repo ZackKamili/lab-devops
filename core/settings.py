@@ -17,7 +17,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 import os
 
 sentry_sdk.init(
-    dsn=os.getenv("SENTRY_DSN", ""), # Utilise une variable d'environnement pour plus de sécurité
+    dsn="https://2d14f1fb31fc5a04a24d29d72f160393@o4511382611951616.ingest.de.sentry.io/4511382632005712",
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
     send_default_pii=True
